@@ -23,6 +23,7 @@ li {
   text-align: left;
   font-size: 16px;
   line-height: 25px;
+  text-transform: capitalize;
 }
 .temperature {
   color: rgb(33, 33, 33);
@@ -30,6 +31,7 @@ li {
   font-family: arial, helvetica, sans-serif;
   font-size: 64px;
   font-stretch: 100%;
+  letter-spacing: 0;
   font-weight: 400;
   line-height: 1;
   margin-left: 15px;

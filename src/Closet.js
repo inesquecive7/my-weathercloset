@@ -1,22 +1,33 @@
 import React, { Component } from "react";
 import "./Closet.css";
+import axios from "axios";
+
 class Closet extends Component {
+  apiKey = "877ddaa55b5e9c0d70a1933d85e50b02";
+  apiRoot = "https://api.openweathermap.org";
   state = {
     loaded: false
   };
-  componentDidMount() {
+  displayData = response => {
+    console.log(response);
     this.setState({
       loaded: true,
       weather: {
-        city: "Paris",
-        date: "Tuesday, July 23",
-        description: "Super sunny",
-        humidity: 0,
-        windSpeed: 22,
-        temperature: 31,
+        city: response.data.name,
+        date: response.data.dt,
+        description: response.data.weather[0].description,
+        humidity: response.data.main.humidity,
+        windSpeed: response.data.wind.speed,
+        temperature: Math.round(response.data.main.temp),
         iconUrl: "https://ssl.gstatic.com/onebox/weather/64/sunny.png"
       }
     });
+  };
+  componentDidMount() {
+    let apiUrl = `${this.apiRoot}/data/2.5/weather?q=${this.props.city}&appid=${
+      this.apiKey
+    }&units=metric`;
+    axios.get(apiUrl).then(this.displayData);
   }
   render() {
     if (this.state.loaded) {
