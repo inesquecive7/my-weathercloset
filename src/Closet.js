@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Closet.css";
+import ReadableDate from "./ReadableDate.js";
 import axios from "axios";
 
 class Closet extends Component {
@@ -36,7 +37,9 @@ class Closet extends Component {
           <h1>Weather Closet</h1>
           <h2>{this.state.weather.city}</h2>
           <ul>
-            <li>{this.state.weather.date}</li>
+            <li>
+              <ReadableDate timestamp={this.state.weather.date} />
+            </li>
             <li>{this.state.weather.description}</li>
           </ul>
           <div className="row">
