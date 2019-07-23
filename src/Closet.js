@@ -1,39 +1,59 @@
 import React, { Component } from "react";
 import "./Closet.css";
 class Closet extends Component {
+  state = {
+    loaded: false
+  };
+  componentDidMount() {
+    this.setState({
+      loaded: true,
+      weather: {
+        city: "Paris",
+        date: "Tuesday, July 23",
+        description: "Super sunny",
+        humidity: 0,
+        windSpeed: 22,
+        temperature: 31,
+        iconUrl: "https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+      }
+    });
+  }
   render() {
-    return (
-      <div>
-        <h1>Weather Closet</h1>
-        <h2>{this.props.city}</h2>
-        <ul>
-          <li>Monday, July 22</li>
-          <li>Very sunny</li>
-        </ul>
-        <div className="row">
-          <div className="col-sm-6">
-            <div className="clearfix">
-              {" "}
-              <img
-                src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-                alt=""
-                className="float-left"
-              />
-              <div className="temperature float-left">
-                30 <small>º C | F</small>
+    if (this.state.loaded) {
+      return (
+        <div>
+          <h1>Weather Closet</h1>
+          <h2>{this.state.weather.city}</h2>
+          <ul>
+            <li>{this.state.weather.date}</li>
+            <li>{this.state.weather.description}</li>
+          </ul>
+          <div className="row">
+            <div className="col-sm-6">
+              <div className="clearfix">
+                <img
+                  src={this.state.weather.iconUrl}
+                  alt=""
+                  className="float-left"
+                />
+                <div className="temperature float-left">
+                  {this.state.weather.temperature} <small>º C | F</small>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="col-sm-6">
-            <ul>
-              <li>Humidity: 26 %</li>
-              <li>Wind speed: 5.2 kmH</li>
-            </ul>
+            <div className="col-sm-6">
+              <ul>
+                <li>Humidity: {this.state.weather.humidity} %</li>
+                <li>Wind speed: {this.state.weather.windSpeed} kmH</li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return <h1>Loading...</h1>;
+    }
   }
 }
 
