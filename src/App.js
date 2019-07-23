@@ -8,7 +8,7 @@ class App extends Component {
       <div className="container">
         <div className="card m-3 p-3">
           <div className="card-body">
-            <Closet city="Quarteira" />
+            <Closet city="London" />
           </div>
         </div>
       </div>

@@ -5,6 +5,10 @@ class ReadableDate extends Component {
     let date = new Date(this.props.timestamp * 1000);
     let hours = date.getHours();
     let minutes = date.getMinutes();
+    if (minutes < 10) {
+      minutes = `0${minutes}`;
+    }
+
     let days = [
       "Sunday",
       "Monday",
@@ -16,7 +20,7 @@ class ReadableDate extends Component {
     ];
 
     let day = days[date.getDay()];
-    return `${day} ${hours}:${minutes}`;
+    return `Retrieved ${day} ${hours}:${minutes}`;
   };
   render() {
     return <div>{this.niceDate()}</div>;

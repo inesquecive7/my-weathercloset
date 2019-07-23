@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Closet.css";
 import ReadableDate from "./ReadableDate.js";
+import Icon from "./Icon.js";
 import axios from "axios";
 
 class Closet extends Component {
@@ -20,7 +21,7 @@ class Closet extends Component {
         humidity: response.data.main.humidity,
         windSpeed: response.data.wind.speed,
         temperature: Math.round(response.data.main.temp),
-        iconUrl: "https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+        iconUrl: response.data.weather[0].icon
       }
     });
   };
@@ -45,11 +46,7 @@ class Closet extends Component {
           <div className="row">
             <div className="col-sm-6">
               <div className="clearfix">
-                <img
-                  src={this.state.weather.iconUrl}
-                  alt=""
-                  className="float-left"
-                />
+                <Icon code={this.state.weather.iconUrl} />
                 <div className="temperature float-left">
                   {this.state.weather.temperature} <small>º C | F</small>
                 </div>
