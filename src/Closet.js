@@ -3,6 +3,7 @@ import "./Closet.css";
 import ReadableDate from "./ReadableDate.js";
 import Loader from "react-loader-spinner";
 import Icon from "./Icon.js";
+import Search from "./Search.js";
 import axios from "axios";
 
 class Closet extends Component {
@@ -35,38 +36,13 @@ class Closet extends Component {
   componentDidMount() {
     this.search(this.props.city);
   }
-  submit = event => {
-    event.preventDefault();
-    this.search(this.state.keyword);
-  };
 
-  updateKeyword = event => {
-    this.setState({
-      keyword: event.target.value
-    });
-  };
   render() {
     if (this.state.loaded) {
       return (
         <div>
-          <form className="insert-city">
-            <div className="clearfix">
-              <input
-                type="text"
-                className="p-2 m-2"
-                placeholder="Type your city here..."
-                autoFocus={true}
-                onChange={event => this.updateKeyword(event)}
-              />
-            </div>
-            <button
-              type="submit"
-              className="btn btn-info"
-              onClick={event => this.submit(event)}
-            >
-              Submit
-            </button>
-          </form>
+          <Search submit={this.search} />
+
           <h2>{this.state.weather.city}</h2>
           <ul>
             <li>
