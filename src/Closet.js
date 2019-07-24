@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Closet.css";
 import ReadableDate from "./ReadableDate.js";
+import Loader from "react-loader-spinner";
 import Icon from "./Icon.js";
 import axios from "axios";
 
@@ -66,7 +67,7 @@ class Closet extends Component {
         </div>
       );
     } else {
-      return <h1>Loading...</h1>;
+      return <Loader type="Circles" color="#22b2da" height="100" width="100" />;
     }
   }
 }
