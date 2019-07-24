@@ -5,7 +5,7 @@ class Icon extends Component {
     return `http://openweathermap.org/img/wn/${this.props.code}@2x.png `;
   };
   render() {
-    return <img src={this.getIcon()} />;
+    return <img src={this.getIcon()} alt="" />;
   }
 }
 

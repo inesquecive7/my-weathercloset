@@ -12,7 +12,6 @@ class Closet extends Component {
     loaded: false
   };
   displayData = response => {
-    console.log(response);
     this.setState({
       loaded: true,
       weather: {
@@ -27,16 +26,47 @@ class Closet extends Component {
       }
     });
   };
-  componentDidMount() {
-    let apiUrl = `${this.apiRoot}/data/2.5/weather?q=${this.props.city}&appid=${
+  search = city => {
+    let apiUrl = `${this.apiRoot}/data/2.5/weather?q=${city}&appid=${
       this.apiKey
     }&units=metric`;
     axios.get(apiUrl).then(this.displayData);
+  };
+  componentDidMount() {
+    this.search(this.props.city);
   }
+  submit = event => {
+    event.preventDefault();
+    this.search(this.state.keyword);
+  };
+
+  updateKeyword = event => {
+    this.setState({
+      keyword: event.target.value
+    });
+  };
   render() {
     if (this.state.loaded) {
       return (
         <div>
+          <form className="insert-city">
+            <div className="clearfix">
+              <input
+                type="text"
+                className="p-2 m-2"
+                placeholder="Type your city here..."
+                autoFocus={true}
+                onChange={event => this.updateKeyword(event)}
+              />
+            </div>
+            <button
+              type="submit"
+              className="btn btn-info"
+              onClick={event => this.submit(event)}
+            >
+              Submit
+            </button>
+          </form>
           <h2>{this.state.weather.city}</h2>
           <ul>
             <li>
@@ -67,7 +97,11 @@ class Closet extends Component {
         </div>
       );
     } else {
-      return <Loader type="Circles" color="#22b2da" height="100" width="100" />;
+      return (
+        <div className="spinner">
+          <Loader type="Circles" color="#22b2da" height="100" width="100" />
+        </div>
+      );
     }
   }
 }

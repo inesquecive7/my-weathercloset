@@ -7,9 +7,9 @@ class App extends Component {
     return (
       <div className="container">
         <h1>Weather Closet</h1>
-        <div className="card m-3 p-3">
+        <div className="card m-3 p-3 rounded border">
           <div className="card-body">
-            <Closet city="Vilamoura" />
+            <Closet city="Lisbon" />
           </div>
         </div>
       </div>
