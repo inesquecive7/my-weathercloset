@@ -2,7 +2,9 @@ import React, { Component } from "react";
 
 class ReadableDate extends Component {
   niceDate = () => {
-    let date = new Date(this.props.timestamp * 1000);
+    let date = new Date(
+      this.props.timestamp * 1000 + (this.props.timezone - 3600) * 1000
+    );
     let hours = date.getHours();
     let minutes = date.getMinutes();
     if (minutes < 10) {
@@ -20,7 +22,11 @@ class ReadableDate extends Component {
     ];
 
     let day = days[date.getDay()];
-    return `Retrieved ${day} ${hours}:${minutes}`;
+    return (
+      <small>
+        Retrieved {day} {hours}:{minutes} local time
+      </small>
+    );
   };
   render() {
     return <div>{this.niceDate()}</div>;

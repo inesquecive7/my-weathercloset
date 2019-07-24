@@ -21,6 +21,7 @@ class Closet extends Component {
         humidity: response.data.main.humidity,
         windSpeed: response.data.wind.speed,
         temperature: Math.round(response.data.main.temp),
+        timezone: response.data.timezone,
         iconUrl: response.data.weather[0].icon
       }
     });
@@ -35,11 +36,13 @@ class Closet extends Component {
     if (this.state.loaded) {
       return (
         <div>
-          <h1>Weather Closet</h1>
           <h2>{this.state.weather.city}</h2>
           <ul>
             <li>
-              <ReadableDate timestamp={this.state.weather.date} />
+              <ReadableDate
+                timestamp={this.state.weather.date}
+                timezone={this.state.weather.timezone}
+              />
             </li>
             <li>{this.state.weather.description}</li>
           </ul>

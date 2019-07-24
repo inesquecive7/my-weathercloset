@@ -6,6 +6,9 @@ h1 {
   font-family: arial, sans-serif;
   font-size: 40px;
   font-weight: 600;
+  padding: 15px;
+  margin: 0 auto;
+  text-decoration: #3b4a6b;
 }
 h2 {
   color: #22b2da;

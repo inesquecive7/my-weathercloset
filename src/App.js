@@ -6,9 +6,10 @@ class App extends Component {
   render() {
     return (
       <div className="container">
+        <h1>Weather Closet</h1>
         <div className="card m-3 p-3">
           <div className="card-body">
-            <Closet city="London" />
+            <Closet city="Vilamoura" />
           </div>
         </div>
       </div>
