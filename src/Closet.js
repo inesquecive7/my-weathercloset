@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import "./Closet.css";
-import ReadableDate from "./ReadableDate.js";
-import Loader from "react-loader-spinner";
 import Icon from "./Icon.js";
 import Search from "./Search.js";
 import axios from "axios";
+import ReadableDate from "./ReadableDate.js";
+import Loader from "react-loader-spinner";
+import "./Closet.css";
 
 class Closet extends Component {
   apiKey = "877ddaa55b5e9c0d70a1933d85e50b02";
