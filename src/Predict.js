@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Icon from "./Icon.js";
 import Container from "react-bootstrap/Container";
+import ReadableDate from "./ReadableDate.js";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Loader from "react-loader-spinner";
@@ -31,10 +32,12 @@ class Predict extends Component {
       let prediction = response.data.list;
       let dayPrediction = [7, 15, 23, 31, 39].map(order => {
         return {
+          date: prediction[order].dt,
           description: prediction[order].weather[0].main,
           icon: prediction[order].weather[0].icon,
           temperature: Math.round(prediction[order].main.temp),
-          wind: Math.round(prediction[order].wind.speed)
+          wind: Math.round(prediction[order].wind.speed),
+          timezone: response.data.city.timezone
         };
       });
       this.setState({ prediction: dayPrediction });
@@ -59,6 +62,12 @@ class Predict extends Component {
                   <Col md="auto">
                     <div key={order}>
                       <ul forecast-data>
+                        <li>
+                          <ReadableDate
+                            timestamp={weather.date}
+                            timezone={weather.timezone}
+                          />
+                        </li>
                         <li>Description:{weather.description}</li>
                         <li>Temperature: {weather.temperature}ºC</li>
                         <li>Wind speed:{weather.wind}km/H</li>

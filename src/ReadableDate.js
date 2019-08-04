@@ -24,7 +24,7 @@ class ReadableDate extends Component {
     let day = days[date.getDay()];
     return (
       <small>
-        Retrieved {day} {hours}:{minutes} local time
+        {day} {hours}:{minutes} local time
       </small>
     );
   };
