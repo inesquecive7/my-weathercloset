@@ -16,7 +16,7 @@ details {
 .forecast-icon {
   position: relative;
   right: 50px;
-  padding: 0, 10px, 5px, 0px;
+  padding: 0, 10px, 5px, 10px;
   float: left;
   line-height: normal;
   width: 80px;
