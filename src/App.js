@@ -15,13 +15,20 @@ class App extends Component {
             </div>
             <div className="row">
               <div className="col-4">
-                <Predict day="Tomorrow" />
+                <div className="card m-3 p-3 rounded border">
+                  {" "}
+                  <Predict day="Tomorrow" />
+                </div>
               </div>
               <div className="col-4">
-                <Predict day="In two days" />
+                <div className="card m-3 p-3 rounded border">
+                  <Predict day="In two days" />
+                </div>
               </div>
               <div className="col-4">
-                <Predict day="In three days" />
+                <div className="card m-3 p-3 rounded border">
+                  <Predict day="In three days" />
+                </div>
               </div>
             </div>
           </div>

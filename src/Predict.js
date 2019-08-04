@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Icon from "./Icon.js";
+import "./Predict.css";
 class Predict extends Component {
   render() {
     return (
@@ -14,8 +15,8 @@ class Predict extends Component {
           <div className="col-sm-6">
             {" "}
             <ul className="details">
-              <li>Max. Temp.: 28 ºC</li>
-              <li>Min. Temp.: 28 ºC</li>
+              <li className="forecastTemp">Max. Temp. 28 ºC</li>
+              <li className="forecastTemp">Min. Temp. 28 ºC</li>
             </ul>
           </div>
         </div>
