@@ -5,6 +5,7 @@ import axios from "axios";
 import ReadableDate from "./ReadableDate.js";
 import Loader from "react-loader-spinner";
 import "./Closet.css";
+import "./Icon.css";
 
 class Closet extends Component {
   apiKey = "877ddaa55b5e9c0d70a1933d85e50b02";
@@ -69,9 +70,12 @@ class Closet extends Component {
               <ul>
                 <li>
                   Max. temperature: {this.state.weather.maxTemp}{" "}
-                  <small>ºC</small>ºC
+                  <small>ºC</small>
                 </li>
-                <li>Min. temperature: {this.state.weather.minTemp}</li>
+                <li>
+                  Min. temperature: {this.state.weather.minTemp}{" "}
+                  <small>ºC</small>
+                </li>
                 <li>Humidity: {this.state.weather.humidity} %</li>
                 <li>Wind speed: {this.state.weather.windSpeed} kmH</li>
               </ul>
