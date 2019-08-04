@@ -2,62 +2,68 @@ import React, { Component } from "react";
 import axios from "axios";
 import Icon from "./Icon.js";
 import Loader from "react-loader-spinner";
+
 import "./Predict.css";
 class Predict extends Component {
   apiKey = "877ddaa55b5e9c0d70a1933d85e50b02";
   apiRoot = "https://api.openweathermap.org";
   state = {
-    loaded: false
+    loaded: false,
+    place: this.props.place
   };
-  displayData = response => {
-    console.log(response);
-    this.setState({
-      loaded: true,
-      weather: {
-        time: "today",
-        maxTemp: Math.round(response.data.main.temp_max),
-        minTemp: Math.round(response.data.main.temp_min)
-      }
+  componentWillMount() {
+    this.newLoad(this.state.place);
+  }
+  newLoad = () => {
+    let newUrl = `${this.apiRoot}/data/2.5/forecast?q=${
+      this.state.place
+    }&appid=${this.apiKey}&units=metric`;
+
+    axios.get(newUrl).then(response => {
+      let prediction = response.data.list;
+      let dayPrediction = [7, 15, 23].map(order => {
+        return {
+          description: prediction[order].weather[0].main,
+          icon: prediction[order].weather[0].icon,
+          temperature: Math.round(prediction[order].main.temp),
+          wind: Math.round(prediction[order].wind.speed)
+        };
+      });
+      this.setState({ prediction: dayPrediction });
     });
   };
-  componentDidMount() {
-    this.search(this.props.city);
-  }
 
-  search = city => {
-    let apiUrl = `${this.apiRoot}/data/2.5/weather?q=${city}&appid=${
-      this.apiKey
-    }&mode=xml&units=metric`;
-    axios.get(apiUrl).then(this.displayData);
-  };
   render() {
-    if (this.state.loaded) {
+    if (this.state.prediction) {
       return (
         <div>
-          <strong>{this.props.day}</strong>
-          <div className="row">
-            {" "}
-            <div className="col-sm-6">
-              {" "}
-              <Icon />
-            </div>
-            <div className="col-sm-6">
-              {" "}
-              <ul className="details">
-                <li className="forecastTemp">Max. Temp. 28 ºC</li>
-                <li className="forecastTemp">Min. Temp. 28 ºC</li>
-              </ul>
-            </div>
-          </div>
+          {this.state.prediction.map((weather, order) => {
+            return (
+              <div>
+                <div key={order}>
+                  <div className="forecast-icon">
+                    <Icon code={weather.icon} />
+                  </div>
+                </div>
+                <div key={order}>
+                  <ul>
+                    <li className="forecast-data">{weather.temperature}`ºC`</li>
+                    <li className="forecast-data">{weather.wind}`km/H`</li>
+                  </ul>{" "}
+                </div>
+              </div>
+            );
+          })}
         </div>
       );
     } else {
       return (
         <div className="spinner">
-          <Loader type="Circles" color="#22b2da" height="100" width="100" />
+          <Loader type="Circles" color="#22b2da" height="50" width="50" />
         </div>
       );
     }
   }
 }
+
 export default Predict;

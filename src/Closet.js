@@ -9,8 +9,8 @@ import "./Closet.css";
 import "./Icon.css";
 
 class Closet extends Component {
-  apiKey = "877ddaa55b5e9c0d70a1933d85e50b02";
-  apiRoot = "https://api.openweathermap.org";
+  apiKey = `877ddaa55b5e9c0d70a1933d85e50b02`;
+  apiRoot = `https://api.openweathermap.org`;
   state = {
     loaded: false
   };
@@ -40,7 +40,6 @@ class Closet extends Component {
   componentDidMount() {
     this.search(this.props.city);
   }
-
   render() {
     if (this.state.loaded) {
       return (
@@ -86,17 +85,7 @@ class Closet extends Component {
             <div className="col-4">
               <div className="card m-3 p-3 rounded border">
                 {" "}
-                <Predict day="Tomorrow" />
-              </div>
-            </div>
-            <div className="col-4">
-              <div className="card m-3 p-3 rounded border">
-                <Predict day="In two days" />
-              </div>
-            </div>
-            <div className="col-4">
-              <div className="card m-3 p-3 rounded border">
-                <Predict day="In three days" />
+                <Predict place={this.state.weather.city} />
               </div>
             </div>
           </div>

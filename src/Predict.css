@@ -1,6 +1,14 @@
 details {
   padding: 0px;
 }
-.forecastTemp {
-  font-size: 12px;
+.forecast-data {
+  display: flex;
+  position: relative;
+  right: 20px;
+  align-items: center;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 5px;
+  white-space: nowrap;
 }
