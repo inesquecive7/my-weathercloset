@@ -65,6 +65,7 @@ class Predict extends Component {
                       </ul>
                     </div>
                   </Col>
+                  <Col> Add fashion advice</Col>
                 </Row>
               </Container>
             );

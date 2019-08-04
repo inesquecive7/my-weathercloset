@@ -6,8 +6,7 @@ details {
 }
 .forecast-data {
   margin: 0 auto;
-  float: left;
-  align-items: center;
+  float: right;
   text-align: right;
   font-size: 10px;
   font-weight: 300;
@@ -15,8 +14,10 @@ details {
   white-space: nowrap;
 }
 .forecast-icon {
-  margin: 0 auto;
-  float: right;
+  position: relative;
+  right: 50px;
+  padding: 0, 10px, 5px, 0px;
+  float: left;
   line-height: normal;
   width: 80px;
   height: 80px;
