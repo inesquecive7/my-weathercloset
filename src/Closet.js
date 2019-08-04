@@ -4,6 +4,7 @@ import Search from "./Search.js";
 import axios from "axios";
 import ReadableDate from "./ReadableDate.js";
 import Loader from "react-loader-spinner";
+import Predict from "./Predict.js";
 import "./Closet.css";
 import "./Icon.css";
 
@@ -79,6 +80,24 @@ class Closet extends Component {
                 <li>Humidity: {this.state.weather.humidity} %</li>
                 <li>Wind speed: {this.state.weather.windSpeed} kmH</li>
               </ul>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-4">
+              <div className="card m-3 p-3 rounded border">
+                {" "}
+                <Predict day="Tomorrow" />
+              </div>
+            </div>
+            <div className="col-4">
+              <div className="card m-3 p-3 rounded border">
+                <Predict day="In two days" />
+              </div>
+            </div>
+            <div className="col-4">
+              <div className="card m-3 p-3 rounded border">
+                <Predict day="In three days" />
+              </div>
             </div>
           </div>
         </div>
