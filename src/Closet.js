@@ -23,7 +23,9 @@ class Closet extends Component {
         windSpeed: response.data.wind.speed,
         temperature: Math.round(response.data.main.temp),
         timezone: response.data.timezone,
-        iconUrl: response.data.weather[0].icon
+        iconUrl: response.data.weather[0].icon,
+        maxTemp: Math.round(response.data.main.temp_max),
+        minTemp: Math.round(response.data.main.temp_min)
       }
     });
   };
@@ -65,6 +67,11 @@ class Closet extends Component {
 
             <div className="col-sm-6">
               <ul>
+                <li>
+                  Max. temperature: {this.state.weather.maxTemp}{" "}
+                  <small>ºC</small>ºC
+                </li>
+                <li>Min. temperature: {this.state.weather.minTemp}</li>
                 <li>Humidity: {this.state.weather.humidity} %</li>
                 <li>Wind speed: {this.state.weather.windSpeed} kmH</li>
               </ul>
