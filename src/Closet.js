@@ -5,9 +5,6 @@ import axios from "axios";
 import ReadableDate from "./ReadableDate.js";
 import Loader from "react-loader-spinner";
 import Predict from "./Predict.js";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import "./Closet.css";
 import "./Icon.css";
 
@@ -46,54 +43,55 @@ class Closet extends Component {
   render() {
     if (this.state.loaded) {
       return (
-        <div>
-          <Search submit={this.search} />
+        <div className="container">
+          <div className="row">
+            {" "}
+            <Search submit={this.search} />
+          </div>
 
-          <h2>{this.state.weather.city}</h2>
-          <ul>
-            <li>
-              <ReadableDate
-                timestamp={this.state.weather.date}
-                timezone={this.state.weather.timezone}
-              />
-            </li>
-            <li>{this.state.weather.description}</li>
-          </ul>
-          <Container>
-            <Row>
-              <Col md="auto">
-                <div className="clearfix" />
-                <Icon code={this.state.weather.iconUrl} />
-              </Col>
-              <Col sm="auto">
-                <div className="temperature float-left">
-                  {this.state.weather.temperature} <small>º C | F</small>
-                </div>
-              </Col>
-              <Col md="auto">
-                <ul>
-                  <li>
-                    Max. temperature: {this.state.weather.maxTemp}{" "}
-                    <small>ºC</small>
-                  </li>
-                  <li>
-                    Min. temperature: {this.state.weather.minTemp}{" "}
-                    <small>ºC</small>
-                  </li>
-                  <li>Humidity: {this.state.weather.humidity} %</li>
-                  <li>Wind speed: {this.state.weather.windSpeed} kmH</li>
-                </ul>
-              </Col>
-            </Row>
+          <div className="row">
+            <h2>{this.state.weather.city}</h2>
+            <ul>
+              <li>
+                <ReadableDate
+                  timestamp={this.state.weather.date}
+                  timezone={this.state.weather.timezone}
+                />
+              </li>
+              <li>{this.state.weather.description}</li>
+            </ul>
+          </div>
+          <div className="row">
+            <div className="col-4">
+              <div className="clearfix" />
+              <Icon code={this.state.weather.iconUrl} />
+            </div>
+            <div className="col-4">
+              <div className="temperature float-left">
+                {this.state.weather.temperature} <small>º C | F</small>
+              </div>
+            </div>
+            <div className="col-4">
+              <ul>
+                <li>
+                  Max. temperature: {this.state.weather.maxTemp}{" "}
+                  <small>ºC</small>
+                </li>
+                <li>
+                  Min. temperature: {this.state.weather.minTemp}{" "}
+                  <small>ºC</small>
+                </li>
+                <li>Humidity: {this.state.weather.humidity} %</li>
+                <li>Wind speed: {this.state.weather.windSpeed} kmH</li>
+              </ul>
+            </div>
+          </div>
 
-            <Row>
-              <Col>
-                <div className="card m-3 p-3 rounded border prediction">
-                  <Predict place={this.state.weather.city} />
-                </div>
-              </Col>
-            </Row>
-          </Container>
+          <div className="row">
+            <div className="card m-3 p-3 rounded border prediction">
+              <Predict place={this.state.weather.city} />
+            </div>
+          </div>
         </div>
       );
     } else {

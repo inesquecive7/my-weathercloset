@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Icon from "./Icon.js";
-import Container from "react-bootstrap/Container";
 import ReadableDate from "./ReadableDate.js";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Loader from "react-loader-spinner";
 
 import "./Predict.css";
@@ -50,16 +47,16 @@ class Predict extends Component {
         <div>
           {this.state.prediction.map((weather, order) => {
             return (
-              <Container>
-                <Row forecasts>
-                  <Col md="auto">
+              <div className="container">
+                <div className="row" id="forecasts">
+                  <div className="col-4">
                     <div key={order}>
                       <div className="forecast-icon">
                         <Icon code={weather.icon} />
                       </div>
                     </div>
-                  </Col>
-                  <Col md="auto">
+                  </div>
+                  <div className="col-4">
                     <div key={order}>
                       <ul forecast-data>
                         <li>
@@ -73,10 +70,10 @@ class Predict extends Component {
                         <li>Wind speed:{weather.wind}km/H</li>
                       </ul>
                     </div>
-                  </Col>
-                  <Col> Add fashion advice</Col>
-                </Row>
-              </Container>
+                  </div>
+                  <div className="col-4"> Add fashion advice</div>
+                </div>
+              </div>
             );
           })}
         </div>
