@@ -6,6 +6,8 @@ import Hot from "./images/Hot.jpg";
 import Superhot from "./images/Superhot.jpg";
 
 class Hanger extends Component {
+  realFeel = this.props.tempFeel;
+
   getSuperCold = () => {
     return Supercold;
   };
@@ -23,22 +25,22 @@ class Hanger extends Component {
   };
 
   render() {
-    if (this.props.tempFeel >= 5) {
-      return <div>{<img src={this.getSuperCold()} alt="supercold" />}}</div>;
+    if (this.realFeel > 5) {
+      return <img src={this.getSuperCold()} alt="supercold" />;
     } else {
-      if ((this.props.tempFeel > 5) & (this.props.tempFeel <= 15)) {
-        return <div>{<img src={this.getCold()} alt="cold" />}}</div>;
+      if ((this.realFeel > 5) & (this.realFeel <= 15)) {
+        return <img src={this.getCold()} alt="cold" />;
       } else {
-        if ((this.props.tempFeel > 15) & (this.props.tempFeel <= 21)) {
-          return <div>{<img src={this.getWarm()} alt="warm" />}}</div>;
+        if ((this.realFeel >= 15) & (this.realFeel < 21)) {
+          return <img src={this.getWarm()} alt="warm" />;
         } else {
-          if ((this.props.tempFeel > 21) & (this.props.tempFeel <= 28)) {
-            return <div>{<img src={this.getHot()} alt="hot" />}}</div>;
+          if ((this.realFeel >= 21) & (this.realFeel < 28)) {
+            return <img src={this.getHot()} alt="hot" />;
           } else {
-            if (this.props.tempFeel > 28) {
-              return (
-                <div>{<img src={this.getSuperHot()} alt="superhot" />}}</div>
-              );
+            if (this.realFeel >= 28) {
+              return <img src={this.getSuperHot()} alt="superhot" />;
+            } else {
+              return <span> OH GOD! </span>;
             }
           }
         }
@@ -46,4 +48,5 @@ class Hanger extends Component {
     }
   }
 }
+
 export default Hanger;

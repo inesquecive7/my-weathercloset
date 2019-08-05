@@ -52,6 +52,8 @@ class Closet extends Component {
 
           <div className="row">
             <h2>{this.state.weather.city}</h2>
+          </div>
+          <div className="row">
             <ul>
               <li>
                 <ReadableDate

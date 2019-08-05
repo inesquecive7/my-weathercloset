@@ -48,16 +48,16 @@ class Predict extends Component {
         <div>
           {this.state.prediction.map((weather, order) => {
             return (
-              <div className="container">
+              <div className="container-fluid">
                 <div className="row" id="forecasts">
-                  <div className="col-4">
+                  <div className="col-3">
                     <div key={order}>
                       <div className="forecast-icon">
                         <Icon code={weather.icon} />
                       </div>
                     </div>
                   </div>
-                  <div className="col-4">
+                  <div className="col-6">
                     <div key={order}>
                       <ul forecast-data>
                         <li>
@@ -72,7 +72,7 @@ class Predict extends Component {
                       </ul>
                     </div>
                   </div>
-                  <div className="col-4">
+                  <div className="col-3">
                     {" "}
                     <Hanger tempFeel={weather.temperature} />
                   </div>

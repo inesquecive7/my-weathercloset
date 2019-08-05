@@ -1,0 +1,14 @@
+#display {
+  border-left-color: #3b4a6b;
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-right-color: #3b4a6b;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-top-color: #3b4a6b;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  box-sizing: border-box;
+}

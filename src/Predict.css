@@ -8,7 +8,7 @@ details {
   margin: 0 auto;
   float: right;
   text-align: right;
-  font-size: 10px;
+  font-size: 8px;
   font-weight: 300;
   line-height: normal;
   white-space: nowrap;
@@ -21,4 +21,7 @@ details {
   line-height: normal;
   width: 80px;
   height: 80px;
+}
+.grid {
+  border: solid;
 }
