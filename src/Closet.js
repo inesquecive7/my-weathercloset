@@ -69,12 +69,12 @@ class Closet extends Component {
               <div className="clearfix" />
               <Icon code={this.state.weather.iconUrl} />
             </div>
-            <div className="col-3">
+            <div className="col-2">
               <div className="temperature float-left">
-                {this.state.weather.temperature} <small>º C | F</small>
+                {this.state.weather.temperature} <small>º C</small>
               </div>
             </div>
-            <div className="col-3">
+            <div className="col-4">
               <ul>
                 <li>
                   Max. temperature: {this.state.weather.maxTemp}{" "}

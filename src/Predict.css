@@ -1,5 +1,6 @@
 details {
   padding: 0px;
+  border-radius: none;
 }
 .forecasts {
   display: table-row-group;
@@ -21,7 +22,4 @@ details {
   line-height: normal;
   width: 80px;
   height: 80px;
-}
-.grid {
-  border: solid;
 }

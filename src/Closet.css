@@ -1,5 +1,5 @@
 body {
-  background: #d3f6d1;
+  background: #f3cf7a;
   border-left-color: #3b4a6b;
   border-left-style: solid;
   border-left-width: 1px;
@@ -58,7 +58,7 @@ img {
   letter-spacing: 0;
   font-weight: 400;
   line-height: 1;
-  letter-spacing: -3px;
+  letter-spacing: 0px;
   padding: 20px 5px 5px 5px;
 }
 .temperature small {
