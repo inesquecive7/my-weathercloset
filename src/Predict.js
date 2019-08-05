@@ -3,8 +3,8 @@ import axios from "axios";
 import Icon from "./Icon.js";
 import ReadableDate from "./ReadableDate.js";
 import Loader from "react-loader-spinner";
-
 import "./Predict.css";
+
 class Predict extends Component {
   apiKey = "877ddaa55b5e9c0d70a1933d85e50b02";
   apiRoot = "https://api.openweathermap.org";

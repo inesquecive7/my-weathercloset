@@ -4,6 +4,7 @@ import Cold from "./images/Cold.jpg";
 import Warm from "./images/Warm.jpg";
 import Hot from "./images/Hot.jpg";
 import Superhot from "./images/Superhot.jpg";
+import "./Hanger.css";
 
 class Hanger extends Component {
   getSuperCold = () => {
@@ -32,10 +33,14 @@ class Hanger extends Component {
       return <img src={this.getHot()} alt="hot" />;
     if (this.props.tempFeel > 28)
       return <img src={this.getSuperHot()} alt="superhot" />;
-    return <div> OH GOD! </div>;
   };
   render() {
-    return <div> {this.showFashion()}</div>;
+    return (
+      <ul>
+        <li className="suggestion">We suggest:</li>
+        <li>{this.showFashion()}</li>
+      </ul>
+    );
   }
 }
 

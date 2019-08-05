@@ -45,59 +45,58 @@ class Closet extends Component {
     if (this.state.loaded) {
       return (
         <div className="container">
-          <div className="row">
-            {" "}
-            <Search submit={this.search} />
-          </div>
+          <span class="border">
+            <div className="row">
+              {" "}
+              <Search submit={this.search} />
+            </div>
 
-          <div className="row">
-            <h2>{this.state.weather.city}</h2>
-          </div>
-          <div className="row">
-            <ul>
-              <li>
-                <ReadableDate
-                  timestamp={this.state.weather.date}
-                  timezone={this.state.weather.timezone}
-                />
-              </li>
-              <li>{this.state.weather.description}</li>
-            </ul>
-          </div>
-          <div className="row">
-            <div className="col-3">
-              <div className="clearfix" />
-              <Icon code={this.state.weather.iconUrl} />
+            <div className="row">
+              <h2>{this.state.weather.city}</h2>
             </div>
-            <div className="col-2">
-              <div className="temperature float-left">
-                {this.state.weather.temperature} <small>º C </small>
-              </div>
-            </div>
-            <div className="col-4">
+            <div className="row">
               <ul>
                 <li>
-                  Max. temperature: {this.state.weather.maxTemp}{" "}
-                  <small>ºC</small>
+                  <ReadableDate
+                    timestamp={this.state.weather.date}
+                    timezone={this.state.weather.timezone}
+                  />
                 </li>
-                <li>
-                  Min. temperature: {this.state.weather.minTemp}{" "}
-                  <small>ºC</small>
-                </li>
-                <li>Humidity: {this.state.weather.humidity} %</li>
-                <li>Wind speed: {this.state.weather.windSpeed} kmH</li>
+                <li>{this.state.weather.description}</li>
               </ul>
             </div>
-            <div className="col-3">
-              <Hanger tempFeel={this.state.weather.temperature} />
+            <div className="row">
+              <div className="col-2">
+                <div className="clearfix" />
+                <Icon code={this.state.weather.iconUrl} />
+              </div>
+              <div className="col-3">
+                <div className="temperature float-left" id="main-temp">
+                  {this.state.weather.temperature} <small>º C </small>
+                </div>
+              </div>
+              <div className="col-4">
+                <ul>
+                  <li>
+                    Max. temperature: {this.state.weather.maxTemp}{" "}
+                    <small>ºC</small>
+                  </li>
+                  <li>
+                    Min. temperature: {this.state.weather.minTemp}{" "}
+                    <small>ºC</small>
+                  </li>
+                  <li>Humidity: {this.state.weather.humidity} %</li>
+                  <li>Wind speed: {this.state.weather.windSpeed} kmH</li>
+                </ul>
+              </div>
+              <div className="col-3">
+                <Hanger tempFeel={this.state.weather.temperature} />
+              </div>
+              <div className="row" />{" "}
             </div>
-          </div>
+          </span>
 
-          <div className="row">
-            <div className="card m-3 p-3 rounded border prediction">
-              <Predict place={this.state.weather.city} />
-            </div>
-          </div>
+          <Predict place={this.state.weather.city} />
         </div>
       );
     } else {
