@@ -71,7 +71,7 @@ class Closet extends Component {
             </div>
             <div className="col-2">
               <div className="temperature float-left">
-                {this.state.weather.temperature} <small>º C</small>
+                {this.state.weather.temperature} <small>º C </small>
               </div>
             </div>
             <div className="col-4">

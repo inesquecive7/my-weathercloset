@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import Icon from "./Icon.js";
 import ReadableDate from "./ReadableDate.js";
-import Hanger from "./Hanger.js";
 import Loader from "react-loader-spinner";
 
 import "./Predict.css";
@@ -48,7 +47,7 @@ class Predict extends Component {
         <div>
           {this.state.prediction.map((weather, order) => {
             return (
-              <div className="container-fluid">
+              <div className="container">
                 <div className="row" id="forecasts">
                   <div className="col-3">
                     <div key={order}>
@@ -57,6 +56,7 @@ class Predict extends Component {
                       </div>
                     </div>
                   </div>
+                  <div className="col-3" />
                   <div className="col-6">
                     <div key={order}>
                       <ul forecast-data>
@@ -71,10 +71,6 @@ class Predict extends Component {
                         <li>Wind speed:{weather.wind}km/H</li>
                       </ul>
                     </div>
-                  </div>
-                  <div className="col-3">
-                    {" "}
-                    <Hanger tempFeel={weather.temperature} />
                   </div>
                 </div>
               </div>
