@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Icon from "./Icon.js";
 import ReadableDate from "./ReadableDate.js";
+import Hanger from "./Hanger.js";
 import Loader from "react-loader-spinner";
 
 import "./Predict.css";
@@ -71,7 +72,10 @@ class Predict extends Component {
                       </ul>
                     </div>
                   </div>
-                  <div className="col-4"> Add fashion advice</div>
+                  <div className="col-4">
+                    {" "}
+                    <Hanger tempFeel={weather.temperature} />
+                  </div>
                 </div>
               </div>
             );

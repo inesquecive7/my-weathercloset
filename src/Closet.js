@@ -3,6 +3,7 @@ import Icon from "./Icon.js";
 import Search from "./Search.js";
 import axios from "axios";
 import ReadableDate from "./ReadableDate.js";
+import Hanger from "./Hanger.js";
 import Loader from "react-loader-spinner";
 import Predict from "./Predict.js";
 import "./Closet.css";
@@ -62,16 +63,16 @@ class Closet extends Component {
             </ul>
           </div>
           <div className="row">
-            <div className="col-4">
+            <div className="col-3">
               <div className="clearfix" />
               <Icon code={this.state.weather.iconUrl} />
             </div>
-            <div className="col-4">
+            <div className="col-3">
               <div className="temperature float-left">
                 {this.state.weather.temperature} <small>º C | F</small>
               </div>
             </div>
-            <div className="col-4">
+            <div className="col-3">
               <ul>
                 <li>
                   Max. temperature: {this.state.weather.maxTemp}{" "}
@@ -84,6 +85,9 @@ class Closet extends Component {
                 <li>Humidity: {this.state.weather.humidity} %</li>
                 <li>Wind speed: {this.state.weather.windSpeed} kmH</li>
               </ul>
+            </div>
+            <div className="col-3">
+              <Hanger tempFeel={this.state.weather.temperature} />
             </div>
           </div>
 
