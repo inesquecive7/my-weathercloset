@@ -48,28 +48,30 @@ class Predict extends Component {
           {this.state.prediction.map((weather, order) => {
             return (
               <div className="container">
-                <div className="row" id="forecasts">
-                  <div className="col-3">
-                    <div key={order}>
-                      <div className="forecast-icon">
-                        <Icon code={weather.icon} />
+                <div className="col-10 center-block">
+                  <div className="row justify-content-around" id="forecasts">
+                    <div className="col-3 center-block">
+                      <div key={order}>
+                        <div className="forecast-icon">
+                          <Icon code={weather.icon} />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="col-3" />
-                  <div className="col-6">
-                    <div key={order}>
-                      <ul forecast-data>
-                        <li>
-                          <ReadableDate
-                            timestamp={weather.date}
-                            timezone={weather.timezone}
-                          />
-                        </li>
-                        <li>Description:{weather.description}</li>
-                        <li>Temperature: {weather.temperature}ºC</li>
-                        <li>Wind speed:{weather.wind}km/H</li>
-                      </ul>
+                    <div className="col-3" />
+                    <div className="col-6">
+                      <div key={order}>
+                        <ul forecast-data>
+                          <li>
+                            <ReadableDate
+                              timestamp={weather.date}
+                              timezone={weather.timezone}
+                            />
+                          </li>
+                          <li>Description:{weather.description}</li>
+                          <li>Temperature: {weather.temperature}ºC</li>
+                          <li>Wind speed:{weather.wind}km/H</li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>

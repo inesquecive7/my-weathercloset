@@ -24,20 +24,31 @@ class Hanger extends Component {
   };
   showFashion = () => {
     if (this.props.tempFeel < 5)
-      return <img src={this.getSuperCold()} alt="supercold" />;
+      return (
+        <img
+          src={this.getSuperCold()}
+          alt="supercold"
+          className="rounded-circle"
+        />
+      );
     if (this.props.tempFeel > 5 && this.props.tempFeel <= 15)
-      return <img src={this.getCold()} alt="cold" />;
+      return <img src={this.getCold()} alt="cold" className="rounded-circle" />;
     if (this.props.tempFeel > 15 && this.props.tempFeel <= 21)
-      return <img src={this.getWarm()} alt="warm" />;
+      return <img src={this.getWarm()} alt="warm" className="rounded-circle" />;
     if (this.props.tempFeel > 21 && this.props.tempFeel <= 28)
-      return <img src={this.getHot()} alt="hot" />;
+      return <img src={this.getHot()} alt="hot" className="rounded-circle" />;
     if (this.props.tempFeel > 28)
-      return <img src={this.getSuperHot()} alt="superhot" />;
+      return (
+        <img
+          src={this.getSuperHot()}
+          alt="superhot"
+          className="rounded-circle"
+        />
+      );
   };
   render() {
     return (
       <ul>
-        <li className="suggestion">We suggest:</li>
         <li>{this.showFashion()}</li>
       </ul>
     );
