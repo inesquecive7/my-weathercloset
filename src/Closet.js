@@ -71,8 +71,8 @@ class Closet extends Component {
                   <Icon code={this.state.weather.iconUrl} />
                 </div>
                 <div className="col-3">
-                  <div className="float-left" id="main-temp">
-                    {this.state.weather.temperature} <small>º C </small>
+                  <div className=" temperature float-left" id="main-temp">
+                    {this.state.weather.temperature} <small>º C</small>
                   </div>
                 </div>
                 <div className="col-4">

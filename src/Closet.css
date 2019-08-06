@@ -50,7 +50,7 @@ img {
   line-height: normal;
   width: 70px;
 }
-.main-temp {
+#main-temp {
   color: #37474f;
   font-family: arial, helvetica, sans-serif;
   font-size: 64px;
