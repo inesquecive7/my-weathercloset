@@ -47,7 +47,7 @@ class Predict extends Component {
         <div>
           {this.state.prediction.map((weather, order) => {
             return (
-              <div className="container">
+              <div className="container-fluid">
                 <div className="col-10 center-block">
                   <div className="row justify-content-around" id="forecasts">
                     <div className="col-3 center-block">

@@ -45,7 +45,7 @@ class Closet extends Component {
     if (this.state.loaded) {
       return (
         <div className="container">
-          <div className="col-12 center-block">
+          <div className="col-11 center-block">
             <span class="border">
               <div className="row">
                 {" "}
@@ -67,12 +67,11 @@ class Closet extends Component {
                 </ul>
               </div>
               <div className="row">
-                <div className="col-2">
-                  <div className="clearfix" />
+                <div className="col-2 clearfix">
                   <Icon code={this.state.weather.iconUrl} />
                 </div>
                 <div className="col-3">
-                  <div className="temperature float-left" id="main-temp">
+                  <div className="float-left" id="main-temp">
                     {this.state.weather.temperature} <small>º C </small>
                   </div>
                 </div>
